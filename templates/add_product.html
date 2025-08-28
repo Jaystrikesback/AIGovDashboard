@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Product</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #2a69ac;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New AI Product</h1>
+        <form action="/add_product" method="post">
+            <div class="form-group">
+                <label for="name">Product Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="vendor">Vendor:</label>
+                <input type="text" id="vendor" name="vendor" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">AI Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">Select...</option>
+                    <option value="Machine Learning">Machine Learning</option>
+                    <option value="NLP">Natural Language Processing (NLP)</option>
+                    <option value="Agentic">Agentic</option>
+                    <option value="Predictive Analytics">Predictive Analytics</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="business_unit">Business Unit:</label>
+                <input type="text" id="business_unit" name="business_unit" required>
+            </div>
+
+            <div class="form-group">
+                <label for="app_owner">App Owner:</label>
+                <input type="text" id="app_owner" name="app_owner" required>
+            </div>
+
+            <div class="form-group">
+                <label for="licensed_users">Licensed Users:</label>
+                <input type="number" step="0.1" id="licensed_users" name="licensed_users" required>
+            </div>
+
+            <div class="form-group">
+                <label for="data_sources">Data Sources (comma separated):</label>
+                <textarea id="data_sources" name="data_sources" rows="2" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="risk_score">Risk Score:</label>
+                <input type="number" step="0.1" id="risk_score" name="risk_score" required>
+            </div>
+
+            <div class="form-group">
+                <label for="foundation_model">Foundation Model:</label>
+                <select id="foundation_model" name="foundation_model" required>
+                    <option value="">Select...</option>
+                    <option value="Google Gemini">Google Gemini</option>
+                    <option value="OpenAI ChatGPT">OpenAI ChatGPT</option>
+                    <option value="Meta Llama">Meta Llama</option>
+		            <option value="Anthropic Claude">Anthropic Claude</option>
+                    <option value="Magistril">Magistril</option>
+                    <option value="AliBaba Qwen">AliBaba Qwen</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="data_privacy_status">Data Privacy Status:</label>
+                <select id="data_privacy_status" name="data_privacy_status" required>
+                    <option value="">Select...</option>
+                    <option value="Compliant">Compliant</option>
+                    <option value="Partially Compliant">Partially Compliant</option>
+                    <option value="Non-Compliant">Non-Compliant</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="explainability">Explainability:</label>
+                <input type="text" id="explainability" name="explainability" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cost_monthly">Monthly Cost ($):</label>
+                <input type="number" step="0.01" id="cost_monthly" name="cost_monthly" required>
+            </div>
+
+            <div class="form-group">
+                <label for="data_ownership">Data Ownership:</label>
+                <select id="data_ownership" name="data_ownership" required>
+                    <option value="">Select...</option>
+                    <option value="Client">Client</option>
+                    <option value="Vendor">Vendor</option>
+                    <option value="Shared">Shared</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="nth_party_risk">Nth Party Risk:</label>
+                <input type="text" id="nth_party_risk" name="nth_party_risk" required>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="">Select...</option>
+                    <option value="Active">Active</option>
+                    <option value="In Pilot">In Pilot</option>
+                    <option value="Retired">Retired</option>
+                </select>
+            </div>
+     
+	        <div class="form-group">
+				<label for="controls">Controls:</label>
+				<div>
+					<input type="checkbox" id="cost-control-spend-limit" name="controls" value="Cost Control - Spend Limit">
+					<label for="cost-control-spend-limit">Cost Control - Spend Limit</label>
+				</div>
+				<div>
+					<input type="checkbox" id="dlp" name="controls" value="DLP">
+					<label for="dlp">Data Loss Prevention (DLP)</label>
+				</div>
+				<div>
+					<input type="checkbox" id="user-auditing" name="controls" value="User Auditing">
+					<label for="user-auditing">User Auditing</label>
+				</div>
+				<div>
+					<input type="checkbox" id="prompt-logging" name="controls" value="Prompt Logging">
+					<label for="prompt-logging">Prompt Logging</label>
+				</div>
+			</div>
+
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-detail {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #3b82f6;
+            width: 30%;
+        }
+
+        .detail-value {
+            width: 70%;
+        }
+		
+		.buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .button, .back-button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .button {
+            background-color: #ef4444;
+        }
+
+        .back-button:hover, .button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Details: {{ product.name }}</h1>
+
+        <div class="product-detail">
+            <span class="detail-label">Vendor:</span>
+            <span class="detail-value">{{ product.vendor }}</span>
+        </div>
+
+        <div class="product-detail">
+            <span class="detail-label">AI Category:</span>
+            <span class="detail-value">{{ product.category }}</span>
+        </div>
+
+        <div class="product-detail">
+            <span class="detail-label">Business Unit:</span>
+            <span class="detail-value">{{ product.business_unit }}</span>
+        </div>
+        
+		   <div class="product-detail">
+            <span class="detail-label">App Owner:</span>
+            <span class="detail-value">{{ product.app_owner }}</span>
+        </div>
+		
+		   <div class="product-detail">
+            <span class="detail-label">Licensed Users:</span>
+            <span class="detail-value">{{ product.licensed_users }}</span>
+        </div>
+		
+        <div class="product-detail">
+            <span class="detail-label">Data Sources:</span>
+            <span class="detail-value">{{ product.data_sources }}</span>
+        </div>
+
+        <div class="product-detail">
+            <span class="detail-label">Risk Score:</span>
+            <span class="detail-value">{{ product.risk_score }}</span>
+        </div>
+
+        <div class="product-detail">
+            <span class="detail-label">Data Privacy Status:</span>
+            <span class="detail-value">{{ product.data_privacy_status }}</span>
+        </div>
+
+           <div class="product-detail">
+            <span class="detail-label">Foundation Model:</span>
+            <span class="detail-value">{{ product.foundation_model }}</span>
+        </div>
+		
+        <div class="product-detail">
+            <span class="detail-label">Explainability:</span>
+            <span class="detail-value">{{ product.explainability }}</span>
+        </div>
+
+        <div class="product-detail">
+            <span class="detail-label">Monthly Cost ($):</span>
+            <span class="detail-value">{{ product.cost_monthly }}</span>
+        </div>
+
+        <div class="product-detail">
+            <span class="detail-label">Data Ownership:</span>
+            <span class="detail-value">{{ product.data_ownership }}</span>
+        </div>
+
+        <div class="product-detail">
+            <span class="detail-label">Nth Party Risk:</span>
+            <span class="detail-value">{{ product.nth_party_risk }}</span>
+        </div>
+
+        <div class="product-detail">
+            <span class="detail-label">Status:</span>
+            <span class="detail-value">{{ product.status }}</span>
+        </div>
+		
+		<div class="product-detail">
+			<span class="detail-label">Controls:</span>
+			<div class="detail-value">
+				{% for control in product.controls %}
+					<span>{{ control.name }}{% if not loop.last %}, {% endif %}</span>
+				{% endfor %}
+			</div>
+		</div>
+
+        <div class="product-detail">
+            <span class="detail-label">Last Updated:</span>
+            <span class="detail-value">{{ product.last_updated.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+        </div>
+		
+		 <div class="buttons">
+            <a href="{{ url_for('index') }}" class="back-button">Back to Dashboard</a>
+            <a href="/edit_product/{{ product.id }}" class="button">Edit Product</a>
+        </div>
+				
+    </div>
+</body>
+</html>
